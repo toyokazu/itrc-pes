@@ -3,7 +3,7 @@
 <table>
   <tr>
     <th>発表</th>
-    <th>点数</th>
+    <th>平均</th>
     <th>発表の時間配分</th>
     <th>発表の流れ</th>
     <th>発表者の言葉遣い</th>
@@ -20,9 +20,11 @@
     <td<%=h set_color(summary.speaker_wording) %>><%=h sprintf("%.3f", summary.speaker_wording) %></td>
     <td<%=h set_color(summary.degree_of_understanding) %>><%=h sprintf("%.3f", summary.degree_of_understanding) %></td>
     <td>
+      <ul class="comments">
       <%- summary.comments.each do |comment| -%>
-        <%=h comment %><br/>
+        <li><%=h comment %></li>
       <%- end -%>
+      </ul>
     </td>
   </tr>
 <%- end -%>

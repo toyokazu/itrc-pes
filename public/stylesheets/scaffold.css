@@ -132,9 +132,15 @@ div.sidebar ul {
   border-bottom: 1px solid black;
   padding: 5px;
 }
+
 td.blue {
     background-color:#E0FFFF;
 }
+
 td.red {
     background-color:#FFB6C1;
+}
+
+.contents ul.comments {
+  margin-left: -2em;
 }
