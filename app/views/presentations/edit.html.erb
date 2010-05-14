@@ -1,0 +1,13 @@
+<h1>発表の編集</h1>
+
+<% form_for(@presentation) do |f| %>
+  <%= f.error_messages %>
+
+  <%= render :partial => f %>
+  <p>
+    <%= f.submit '更新' %>
+  </p>
+<% end %>
+
+<%= link_to '詳細', @presentation %> |
+<%= link_to '戻る', presentations_path %>

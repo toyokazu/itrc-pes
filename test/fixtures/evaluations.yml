@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  presentation: 
+  valuator: MyString
+  date: 2010-05-10 17:52:08
+  presentation_allotment: 1.5
+  presentation_story: 1.5
+  speaker_wording: 1.5
+  degree_of_understanding: 1.5
+  comments: MyText
+
+two:
+  presentation: 
+  valuator: MyString
+  date: 2010-05-10 17:52:08
+  presentation_allotment: 1.5
+  presentation_story: 1.5
+  speaker_wording: 1.5
+  degree_of_understanding: 1.5
+  comments: MyText

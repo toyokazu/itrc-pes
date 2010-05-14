@@ -1,0 +1,13 @@
+<h1>評価の編集</h1>
+
+<% form_for(@evaluation) do |f| %>
+  <%= f.error_messages %>
+
+  <%= render :partial => f %>
+  <p>
+    <%= f.submit '更新' %>
+  </p>
+<% end %>
+
+<%= link_to '詳細', @evaluation %> |
+<%= link_to '戻る', evaluations_path %>

@@ -1,0 +1,35 @@
+<h1>評価の一覧</h1>
+
+<table>
+  <tr>
+    <th>発表</th>
+    <th>評価者</th>
+    <th>日付</th>
+    <th>発表の時間配分</th>
+    <th>発表の流れ</th>
+    <th>発表者の言葉遣い</th>
+    <th>発表者の理解度</th>
+    <th>コメント</th>
+    <th colspan="3">操作</th>
+  </tr>
+
+<% @evaluations.each do |evaluation| %>
+  <tr>
+    <td><%=h (evaluation.presentation.nil? ? nil : (evaluation.presentation.title + '(' + evaluation.presentation.speaker + ')')) %></td>
+    <td><%=h evaluation.valuator %></td>
+    <td><%=h evaluation.date %></td>
+    <td<%=h set_color(evaluation.presentation_allotment) %>><%=h evaluation.presentation_allotment %></td>
+    <td<%=h set_color(evaluation.presentation_story) %>><%=h evaluation.presentation_story %></td>
+    <td<%=h set_color(evaluation.speaker_wording) %>><%=h evaluation.speaker_wording %></td>
+    <td<%=h set_color(evaluation.degree_of_understanding) %>><%=h evaluation.degree_of_understanding %></td>
+    <td><%=h evaluation.comments %></td>
+    <td><%= link_to '詳細', evaluation %></td>
+    <td><%= link_to '更新', edit_evaluation_path(evaluation) %></td>
+    <td><%= link_to '削除', evaluation, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '新規評価作成', new_evaluation_path %>

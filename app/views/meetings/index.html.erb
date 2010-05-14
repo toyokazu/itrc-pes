@@ -1,0 +1,34 @@
+<h1>研究会一覧</h1>
+
+<table>
+  <tr>
+    <th>研究会名称</th>
+    <th>開始日</th>
+    <th>終了日</th>
+    <th>開催場所</th>
+    <th colspan="2">評価</th>
+  <%- if !session[:cas_user].nil? -%>
+    <th colspan="3">操作</th>
+  <%- end -%>
+  </tr>
+
+<% @meetings.each do |meeting| %>
+  <tr>
+    <td><%= link_to meeting.name, meeting_presentations_path(meeting) %></td>
+    <td><%=h meeting.start_date %></td>
+    <td><%=h meeting.end_date %></td>
+    <td><%=h meeting.location %></td>
+    <td><%= link_to '新規作成', new_meeting_evaluations_path(meeting) %></td>
+    <td><%= link_to '要約', summaries_meeting_evaluations_path(meeting) %></td>
+  <%- if !session[:cas_user].nil? -%>
+    <td><%= link_to '詳細', meeting %></td>
+    <td><%= link_to '編集', edit_meeting_path(meeting) %></td>
+    <td><%= link_to '削除', meeting, :confirm => 'Are you sure?', :method => :delete %></td>
+  <%- end -%>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '研究会の新規登録', new_meeting_path %>

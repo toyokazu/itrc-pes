@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  meeting: 
+  speaker: MyString
+  collaborator: MyString
+  affiliation: MyString
+  title: MyString
+
+two:
+  meeting: 
+  speaker: MyString
+  collaborator: MyString
+  affiliation: MyString
+  title: MyString

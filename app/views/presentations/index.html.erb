@@ -1,0 +1,36 @@
+<h1>発表一覧</h1>
+
+<table>
+  <tr>
+    <!-- <th>研究会</th> -->
+    <th>タイトル</th>
+    <th>発表者</th>
+    <th>共同研究者</th>
+    <th>所属</th>
+    <th colspan="2">評価</th>
+  <%- if !session[:cas_user].nil? -%>
+    <th colspan="3">操作</th>
+  <%- end -%>
+  </tr>
+
+<% @presentations.each do |presentation| %>
+  <tr>
+    <!-- <td><%=h (presentation.meeting.nil? ? nil : presentation.meeting.name) %></td> -->
+    <td><%=h presentation.title %></td>
+    <td><%=h presentation.speaker %></td>
+    <td><%=h presentation.collaborator %></td>
+    <td><%=h presentation.affiliation %></td>
+    <td><%= link_to '新規作成', new_presentation_evaluations_path(presentation) %></td>
+    <td><%= link_to '要約', summaries_presentation_evaluations_path(presentation) %></td>
+  <%- if !session[:cas_user].nil? -%>
+    <td><%= link_to '詳細', presentation %></td>
+    <td><%= link_to '編集', edit_presentation_path(presentation) %></td>
+    <td><%= link_to '削除', presentation, :confirm => 'Are you sure?', :method => :delete %></td>
+  <%- end -%>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '発表の新規作成', new_presentation_path %>

@@ -1,0 +1,43 @@
+<p>
+  <b>発表:</b>
+  <%=h (@evaluation.presentation.nil? ? nil : (@evaluation.presentation.title + '(' + @evaluation.presentation.speaker + ')')) %>
+</p>
+
+<p>
+  <b>評価者:</b>
+  <%=h @evaluation.valuator %>
+</p>
+
+<p>
+  <b>日付:</b>
+  <%=h @evaluation.date %>
+</p>
+
+<p>
+  <b>発表の時間配分:</b>
+  <%=h @evaluation.presentation_allotment %>
+</p>
+
+<p>
+  <b>発表の流れ:</b>
+  <%=h @evaluation.presentation_story %>
+</p>
+
+<p>
+  <b>発表の言葉遣い:</b>
+  <%=h @evaluation.speaker_wording %>
+</p>
+
+<p>
+  <b>発表者の理解度:</b>
+  <%=h @evaluation.degree_of_understanding %>
+</p>
+
+<p>
+  <b>コメント:</b>
+  <%=h @evaluation.comments %>
+</p>
+
+
+<%= link_to '編集', edit_evaluation_path(@evaluation) %> |
+<%= link_to '戻る', root_path %>

@@ -1,0 +1,31 @@
+<h1>評価の要約一覧</h1>
+
+<table>
+  <tr>
+    <th>発表</th>
+    <th>点数</th>
+    <th>発表の時間配分</th>
+    <th>発表の流れ</th>
+    <th>発表者の言葉遣い</th>
+    <th>発表者の理解度</th>
+    <th>コメント</th>
+  </tr>
+
+<%- @summaries.each do |summary| -%>
+  <tr>
+    <td><%=h (summary.presentation.nil? ? nil : (summary.presentation.title + '(' + summary.presentation.speaker + ')')) %></td>
+    <td<%=h set_color(summary.total_score) %>><%=h sprintf("%.3f", summary.total_score) %></td>
+    <td<%=h set_color(summary.presentation_allotment) %>><%=h sprintf("%.3f", summary.presentation_allotment) %></td>
+    <td<%=h set_color(summary.presentation_story) %>><%=h sprintf("%.3f", summary.presentation_story) %></td>
+    <td<%=h set_color(summary.speaker_wording) %>><%=h sprintf("%.3f", summary.speaker_wording) %></td>
+    <td<%=h set_color(summary.degree_of_understanding) %>><%=h sprintf("%.3f", summary.degree_of_understanding) %></td>
+    <td>
+      <%- summary.comments.each do |comment| -%>
+        <%=h comment %><br/>
+      <%- end -%>
+    </td>
+  </tr>
+<%- end -%>
+</table>
+
+<br />

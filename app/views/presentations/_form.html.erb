@@ -1,0 +1,20 @@
+  <p>
+    <%= form.label :meeting, '研究会' %><br />
+    <%= form.select(:meeting_id, Meeting.all.collect {|meeting| [meeting.name, meeting.id] }) %>
+  </p>
+  <p>
+    <%= form.label :title, 'タイトル' %><br />
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :speaker, '発表者' %><br />
+    <%= form.text_field :speaker %>
+  </p>
+  <p>
+    <%= form.label :collaborator, '共同研究者' %><br />
+    <%= form.text_field :collaborator %>
+  </p>
+  <p>
+    <%= form.label :affiliation, '所属' %><br />
+    <%= form.text_field :affiliation %>
+  </p>

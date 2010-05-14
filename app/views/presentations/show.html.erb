@@ -1,0 +1,27 @@
+<p>
+  <b>研究会:</b>
+  <%=h (@presentation.meeting.nil? ? nil : @presentation.meeting.name) %>
+</p>
+
+<p>
+  <b>タイトル:</b>
+  <%=h @presentation.title %>
+</p>
+
+<p>
+  <b>発表者:</b>
+  <%=h @presentation.speaker %>
+</p>
+
+<p>
+  <b>共同研究者:</b>
+  <%=h @presentation.collaborator %>
+</p>
+
+<p>
+  <b>所属:</b>
+  <%=h @presentation.affiliation %>
+</p>
+
+<%= link_to '編集', edit_presentation_path(@presentation) %> |
+<%= link_to '戻る', presentations_path %>

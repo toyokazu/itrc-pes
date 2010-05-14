@@ -1,0 +1,23 @@
+<p>
+  <b>名称:</b>
+  <%=h @meeting.name %>
+</p>
+
+<p>
+  <b>開始日:</b>
+  <%=h @meeting.start_date %>
+</p>
+
+<p>
+  <b>終了日:</b>
+  <%=h @meeting.end_date %>
+</p>
+
+<p>
+  <b>開催地:</b>
+  <%=h @meeting.location %>
+</p>
+
+
+<%= link_to '編集', edit_meeting_path(@meeting) %> |
+<%= link_to '戻る', meetings_path %>

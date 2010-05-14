@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>研究会発表評価システム</title>
+  <%= stylesheet_link_tag 'scaffold' %>
+</head>
+<body>
+
+  <div class="frame">
+    <div class="header">
+      <div class="logo"><%= image_tag("itrc.png", :size => "64x64") %></div>
+      <div class="login">
+      <% if session[:cas_user].nil? %>
+        <%= link_to("ログイン", CASClient::Frameworks::Rails::Filter.login_url(controller)) %>
+      <% else %>
+        <%= h session[:cas_user] %>|<%= link_to 'ログアウト', :controller => 'root', :action => 'logout' %>
+      <% end %>
+      </div>
+      <div class="clear"><hr/></div>
+    </div>
+
+    <div class="main">
+      <div class="contents">
+        <p style="color: green"><%= flash[:notice] %></p>
+        <%= yield %>
+      </div>
+
+      <div class="sidebar">
+        <ul>
+
+          <!-- menu examples
+          <li>研究会</li>
+          <ul>
+            <li><%= # link_to '第1回 XX 研究会', meetings_path(:id => x) %></li>
+            <li><%= # link_to 'XX 研究会 (XX セッション)', presentations_path(:meeting_id => x) %></li>
+          </ul>
+          <li>メニュー</li>
+          <ul>
+            <li><%= # link_to '新規評価作成', new_evaluation_path %></li>
+            <li><%= # link_to '研究会', meetings_path %></li>
+            <li><%= # link_to '発表', presentations_path %></li>
+            <li><%= # link_to '評価の要約', summaries_evaluations_path %></li>
+          </ul>
+          -->
+          <% if controller.authorized? %>
+          <li>管理者メニュー</li>
+          <ul>
+            <li><%= link_to '新規研究会登録', new_meeting_path %></li>
+            <li><%= link_to '評価', evaluations_path %></li>
+          </ul>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="clear"><hr/></div>
+    </div>
+
+    <div class="footer">
+      <%= link_to 'Top ページ', :controller => 'root' %>
+    </div>
+  </div>
+
+</body>
+</html>

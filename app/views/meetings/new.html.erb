@@ -1,0 +1,12 @@
+<h1>研究会の新規登録</h1>
+
+<% form_for(@meeting) do |f| %>
+  <%= f.error_messages %>
+
+  <%= render :partial => f %>
+  <p>
+    <%= f.submit '登録' %>
+  </p>
+<% end %>
+
+<%= link_to '戻る', meetings_path %>
