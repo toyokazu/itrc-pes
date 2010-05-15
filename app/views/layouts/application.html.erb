@@ -34,15 +34,15 @@
           <!-- menu examples
           <li>研究会</li>
           <ul>
-            <li>&lt%= # link_to '第1回 XX 研究会', meetings_path(:id => x) %&gt</li>
-            <li>&lt%= # link_to 'XX 研究会 (XX セッション)', presentations_path(:meeting_id => x) %&gt</li>
+            <li>&lt%= link_to '第1回 XX 研究会', meetings_path(:id => x) %&gt</li>
+            <li>&lt%= link_to 'XX 研究会 (XX セッション)', presentations_path(:meeting_id => x) %&gt</li>
           </ul>
           <li>メニュー</li>
           <ul>
-            <li>&lt%= # link_to '新規評価作成', new_evaluation_path %&gt</li>
-            <li>&lt%= # link_to '研究会', meetings_path %&gt</li>
-            <li>&lt%= # link_to '発表', presentations_path %&gt</li>
-            <li>&lt%= # link_to '評価の要約', summaries_evaluations_path %&gt</li>
+            <li>&lt%= link_to '新規評価作成', new_evaluation_path %&gt</li>
+            <li>&lt%= link_to '研究会', meetings_path %&gt</li>
+            <li>&lt%= link_to '発表', presentations_path %&gt</li>
+            <li>&lt%= link_to '評価の要約', summaries_evaluations_path %&gt</li>
           </ul>
           -->
           <% if !current_user.nil? %>
