@@ -13,10 +13,10 @@
     <div class="header">
       <div class="logo"><%= image_tag("itrc.png", :size => "64x64") %></div>
       <div class="login">
-      <% if session[:cas_user].nil? %>
-        <%= link_to("ログイン", CASClient::Frameworks::Rails::Filter.login_url(controller)) %>
+      <% if current_user.nil? %>
+        <%= link_to("ログイン", new_session_path) %>
       <% else %>
-        <%= h session[:cas_user] %>|<%= link_to 'ログアウト', :controller => 'root', :action => 'logout' %>
+        <%= h current_user.login %>|<%= link_to 'ログアウト', session_path, :confirm => 'ログアウトしてよろしいですか？', :method => :delete %>
       <% end %>
       </div>
       <div class="clear"><hr/></div>
@@ -45,7 +45,7 @@
             <li>&lt%= # link_to '評価の要約', summaries_evaluations_path %&gt</li>
           </ul>
           -->
-          <% if controller.authorized? %>
+          <% if !current_user.nil? %>
           <li>管理者メニュー</li>
           <ul>
             <li><%= link_to '新規研究会登録', new_meeting_path %></li>

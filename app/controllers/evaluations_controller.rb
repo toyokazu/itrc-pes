@@ -1,7 +1,8 @@
 class EvaluationsController < ApplicationController
   require_auth = [:index]
-  before_filter CASClient::Frameworks::Rails::GatewayFilter, :except => [:create, :update, :destroy] + require_auth
-  before_filter CASClient::Frameworks::Rails::Filter, :only => require_auth
+  if defined?(AuthenticatedSystem)
+    before_filter :login_required, :only => require_auth
+  end
 
   # GET /evaluations
   # GET /evaluations.xml

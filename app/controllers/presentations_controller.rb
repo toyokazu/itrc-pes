@@ -1,7 +1,8 @@
 class PresentationsController < ApplicationController
-  require_auth = [:index, :show]
-  before_filter CASClient::Frameworks::Rails::GatewayFilter, :only => require_auth
-  before_filter CASClient::Frameworks::Rails::Filter, :except => require_auth
+  without_auth = [:index, :show]
+  if defined?(AuthenticatedSystem)
+    before_filter :login_required, :except => without_auth
+  end
 
   # GET /presentations
   # GET /presentations.xml

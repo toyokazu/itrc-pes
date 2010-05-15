@@ -46,5 +46,3 @@ Rails::Initializer.run do |config|
   # disable colorize logging
   config.active_record.colorize_logging = false
 end
-
-CASClient::Frameworks::Rails::Filter.configure(:cas_base_url => "https://localhost:8443/") 

@@ -8,11 +8,6 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
 
-  def authorized?
-    !session[:cas_user].nil?
-  end
-
-  def redirect_back_or_default
-    redirect_to(request.referer || root_path)
-  end
+  # for using restful_authentication  
+  include AuthenticatedSystem
 end
