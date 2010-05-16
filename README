@@ -4,11 +4,21 @@ A prototype system for evaluating presentations in ITRC workshops.
 
 == Installation
 
-### checkout code
+checkout code
 % git clone git://github.com/toyokazu/itrc-pes.git
 % cd itrc-pes
-### install restful-authentication plugin
+install restful-authentication plugin
 % ./script/plugin install git://github.com/technoweenie/restful-authentication.git
-### if you setup any default data, please edit db/seeds.rb before db:setup
-### setup db
+init site_keys.rb
+% rake auth:gen:site_key
+if you setup any default data, please edit db/seeds.rb before db:setup
 % rake db:setup
+
+If you want to use application server (like thin, mongrel, and so on) and change root path, edit app/controllers/sessions_controller.rb to change default path.
+
+e.g. change '/' to  '/itrc-pes'
+% vi app/controllers/sessions_controller.rb
+before:
+      redirect_back_or_default('/')
+after:
+      redirect_back_or_default('/itrc-pes')
