@@ -8,6 +8,23 @@ class Evaluation < ActiveRecord::Base
     "悪 (#{MIN_SCORE.to_i}) ー 良 (#{MAX_SCORE.to_i})"
   end
 
+  def self.score_indication(score)
+    case(score)
+    when MAX_SCORE:
+      "#{score} (良)"
+    when MIN_SCORE:
+      "#{score} (悪)"
+    when self.default_score:
+      "#{score} (平均)"
+    else
+      score
+    end
+  end
+
+  def self.default_score
+    ((MIN_SCORE + MAX_SCORE) / 2).to_i
+  end
+
   def self.score_attributes
     %w[ presentation_length presentation_allotment presentation_story presentation_completeness material_legibility loudness_and_clearness degree_of_understanding speaker_wording speaker_manner ]
   end

@@ -1,4 +1,5 @@
-<% scores = (Evaluation::MIN_SCORE.to_i..Evaluation::MAX_SCORE.to_i).collect %>
+<% scores = (Evaluation::MIN_SCORE.to_i..Evaluation::MAX_SCORE.to_i).map {|i| [Evaluation.score_indication(i), i]} %>
+<% default = Evaluation.default_score %>
 <% explanation = Evaluation.score_explanation %>
   <p>
     <%= form.label :presentation, '発表' %><br />
@@ -14,19 +15,19 @@
   </p>
   <p>
     <%= form.label :presentation_allotment, '発表の時間配分 / ' + explanation %><br />
-    <%= form.select :presentation_allotment, scores %>
+    <%= form.select :presentation_allotment, scores, :selected => default %>
   </p>
   <p>
     <%= form.label :presentation_story, '発表の流れ / ' + explanation %><br />
-    <%= form.select :presentation_story, scores %>
+    <%= form.select :presentation_story, scores, :selected => default %>
   </p>
   <p>
     <%= form.label :speaker_wording, '発表者の言葉遣い / ' + explanation %><br />
-    <%= form.select :speaker_wording, scores %>
+    <%= form.select :speaker_wording, scores, :selected => default %>
   </p>
   <p>
     <%= form.label :degree_of_understanding, '発表者の理解度 / ' + explanation %><br />
-    <%= form.select :degree_of_understanding, scores %>
+    <%= form.select :degree_of_understanding, scores, :selected => default %>
   </p>
   <p>
     <%= form.label :comments, 'コメント' %><br />
