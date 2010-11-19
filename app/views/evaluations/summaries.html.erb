@@ -20,11 +20,10 @@
     <td<%=h set_color(summary.speaker_wording) %>><%=h sprintf("%.3f", summary.speaker_wording) %></td>
     <td<%=h set_color(summary.degree_of_understanding) %>><%=h sprintf("%.3f", summary.degree_of_understanding) %></td>
     <td>
-      <ul class="comments">
       <%- summary.comments.each do |comment| -%>
-        <li><%=h comment %></li>
+        <%= RedCloth.new(comment).to_html %>
+        <hr/>
       <%- end -%>
-      </ul>
     </td>
   </tr>
 <%- end -%>

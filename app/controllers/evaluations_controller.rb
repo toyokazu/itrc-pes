@@ -1,3 +1,5 @@
+require 'RedCloth'
+
 class EvaluationsController < ApplicationController
   require_auth = [:index]
   if defined?(AuthenticatedSystem)

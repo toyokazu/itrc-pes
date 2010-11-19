@@ -22,7 +22,7 @@
     <td<%=h set_color(evaluation.presentation_story) %>><%=h evaluation.presentation_story %></td>
     <td<%=h set_color(evaluation.speaker_wording) %>><%=h evaluation.speaker_wording %></td>
     <td<%=h set_color(evaluation.degree_of_understanding) %>><%=h evaluation.degree_of_understanding %></td>
-    <td><%=h evaluation.comments %></td>
+    <td><%= RedCloth.new(evaluation.comments).to_html %></td>
     <td><%= link_to '詳細', evaluation %></td>
     <td><%= link_to '更新', edit_evaluation_path(evaluation) %></td>
     <td><%= link_to '削除', evaluation, :confirm => 'Are you sure?', :method => :delete %></td>

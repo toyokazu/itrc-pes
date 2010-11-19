@@ -2,7 +2,7 @@ body { background-color: #fff; color: #333; }
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size:   13px;
+  font-size:   11px;
   line-height: 18px;
 }
 
@@ -21,6 +21,45 @@ a:hover { color: #fff; background-color:#000; }
   background-color: red;
   display: table;
 }
+
+/* -- for monitter (begin) -- */
+.tweet
+{
+  display: block;
+  background: #333;
+  clear: both;
+  padding: 0.6em;
+  margin: 0.3em;
+  overflow: hidden;
+}
+.tweet img
+{
+  float: left;
+  margin-right: 1em;
+  border: 2px solid #222;
+  background: #444;
+}
+.tweet p.text
+{
+  font-family: verdana;
+  font-size: 9px;
+  color: #efefef;
+  margin: 0;
+  padding: 0;
+  line-height: 120%;
+  /* padding-left: 70px; */
+}
+.monitter 
+{
+  float: left;
+  /* width: 280px; */
+  height: 360px;
+  /* margin: 5px; */
+  border: 4px solid #666;
+  background: #666;
+  overflow:hidden;
+}
+/* -- for monitter (end) -- */
 
 #errorExplanation {
   width: 400px;
@@ -53,7 +92,7 @@ a:hover { color: #fff; background-color:#000; }
 }
 
 div.frame {
-  width: 1024px;
+  /* width: 1024px; */
   margin: 0 auto;
 }
 
@@ -93,13 +132,15 @@ div.footer {
 }
 
 div.contents {
-  width: 840px;
+  width: 70%;
+  /* width: 840px; */
   float: right;
   padding: 5px;
 }
 
 div.sidebar {
-  width: 164px;
+  width: 25%;
+  /* width: 164px; */
   float: left;
   padding: 5px;
 }
@@ -144,3 +185,4 @@ td.red {
 .contents ul.comments {
   margin-left: -2em;
 }
+

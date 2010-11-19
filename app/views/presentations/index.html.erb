@@ -7,7 +7,7 @@
     <th>発表者</th>
     <th>共同研究者</th>
     <th>所属</th>
-    <th colspan="2">評価</th>
+    <th colspan="2" width="60px">評価</th>
   <%- if !current_user.nil? -%>
     <th colspan="3">操作</th>
   <%- end -%>
@@ -20,7 +20,7 @@
     <td><%=h presentation.speaker %></td>
     <td><%=h presentation.collaborator %></td>
     <td><%=h presentation.affiliation %></td>
-    <td><%= link_to '新規作成', new_presentation_evaluations_path(presentation) %></td>
+    <td><%= link_to '新規', new_presentation_evaluations_path(presentation) %></td>
     <td><%= link_to '要約', summaries_presentation_evaluations_path(presentation) %></td>
   <%- if !current_user.nil? -%>
     <td><%= link_to '詳細', presentation %></td>

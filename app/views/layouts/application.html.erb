@@ -5,6 +5,8 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>研究会発表評価システム</title>
+  <%= javascript_include_tag 'jquery.min' %>
+  <%= javascript_include_tag 'monitter.min' %>
   <%= stylesheet_link_tag 'scaffold' %>
 </head>
 <body>
@@ -31,10 +33,11 @@
       <div class="sidebar">
         <ul>
 
+          <li>研究会</li>
           <!-- menu examples
           <li>研究会</li>
           <ul>
-            <li>&lt%= link_to '第1回 XX 研究会', meetings_path(:id => x) %&gt</li>
+            <li>&lt%= link_to '第1回 XX 研究会', meeting_presentations_path(x) %&gt </li>
             <li>&lt%= link_to 'XX 研究会 (XX セッション)', presentations_path(:meeting_id => x) %&gt</li>
           </ul>
           <li>メニュー</li>
@@ -53,6 +56,7 @@
           </ul>
           <% end %>
         </ul>
+        <div class="monitter" id="tweets" title="%23itrc"></div>
       </div>
 
       <div class="clear"><hr/></div>
