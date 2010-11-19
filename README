@@ -22,3 +22,14 @@ before:
       redirect_back_or_default('/')
 after:
       redirect_back_or_default('/itrc-pes')
+
+You should also change path for textile-editor.js
+
+% vi public/javascripts/textile-editor.js
+
+before:
+var prefix = '';
+
+after:
+var prefix = '/itrc-pes';
+
