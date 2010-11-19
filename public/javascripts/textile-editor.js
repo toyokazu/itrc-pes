@@ -34,6 +34,8 @@ more on textile:
 
 */
 
+var prefix = '';
+
 // Define Button Object
 function TextileEditorButton(id, display, tagStart, tagEnd, access, title, sve, open) {
   this.id = id;       // used to name the toolbar button
@@ -124,7 +126,7 @@ TextileEditor.Methods = {
       theButton.setAttribute('open', button.open);
 
       var img = document.createElement('img');
-      img.src = '/images/textile-editor/' + button.display;
+      img.src = prefix + '/images/textile-editor/' + button.display;
       theButton.appendChild(img);
     } else {
       return button;
@@ -682,4 +684,4 @@ destination = TextileEditor
 source = TextileEditor.Methods
 for(var property in source) destination[property] = source[property];
 
-document.write('<script src="/javascripts/textile-editor-config.js" type="text/javascript"></script>');
+document.write('<script src="' + prefix + '/javascripts/textile-editor-config.js" type="text/javascript"></script>');
