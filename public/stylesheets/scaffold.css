@@ -166,12 +166,14 @@ div.sidebar ul {
   border-bottom: 1px solid black;
   padding: 5px;
   background-color: #B0E0E6;
+  vertical-align: center;
 }
 
 .contents td {
   border-right: 1px solid black;
   border-bottom: 1px solid black;
   padding: 5px;
+  vertical-align: top;
 }
 
 td.blue {
